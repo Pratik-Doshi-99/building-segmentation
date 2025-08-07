@@ -1,0 +1,5 @@
+soft_labels/tile_YV3xUniiUOc.tif
+soft_labels/tile_yo3fLd2x0BE.tif
+soft_labels/tile_BVbrdWumLwg.tif
+soft_labels/tile_GJOlEX1KShg.tif
+soft_labels/tile_AzM3d_K9bbY.tif
