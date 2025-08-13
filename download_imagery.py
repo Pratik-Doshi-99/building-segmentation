@@ -251,10 +251,21 @@ def downsample_tile(
             (src.height / new_height)
         )
         
-        # Read and downsample data
-        data = src.read(
-            out_shape=(src.count, new_height, new_width),
-            resampling=Resampling.average
+        # Read original data
+        original_data = src.read()
+        
+        # Create output array for downsampled data
+        data = np.empty((src.count, new_height, new_width), dtype=src.dtypes[0])
+        
+        # Use reproject with MAX resampling to preserve sparse building features
+        reproject(
+            source=original_data,
+            destination=data,
+            src_transform=src.transform,
+            src_crs=src.crs,
+            dst_transform=transform,
+            dst_crs=src.crs,
+            resampling=Resampling.max
         )
         
         # Update metadata
